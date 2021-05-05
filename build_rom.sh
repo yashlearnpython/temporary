@@ -4,14 +4,19 @@ set -e
 set -x
 
 # sync rom
-repo init --depth=1 -u git://github.com/AospExtended/manifest.git -b 11.x
-git clone https://github.com/Apon77Lab/android_.repo_local_manifests.git --depth 1 -b aex .repo/local_manifests
+repo init -u git://github.com/DerpFest-11/manifest.git -b 11 --depth=1
+git clone https://github.com/SuperCosmicBeing/frostmanifest.git --depth=1 -b derp .repo/local_manifests
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+
+#Setup
+curl https://gist.githubusercontent.com/SuperCosmicBeing/c6db35d8abfa480e183a66b71ffca563/raw/3f5f1fc6d02ae767479bda37c04ea417a229f7eb/gms_full.mk >> gms_full.mk
+mv gms_full.mk vendor/gms/
+rm -rf device/generic/opengl-transport
 
 # build rom
 source build/envsetup.sh
-lunch aosp_mido-user
-m aex -j$(nproc --all)
+lunch derp_sakura-user
+mka derp
 
 # upload rom
 up(){
@@ -19,4 +24,4 @@ up(){
 	# 14 days, 10 GB limit
 }
 
-up out/target/product/mido/*.zip
+up out/target/product/sakura/*.zip
