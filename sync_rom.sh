@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -exv
-ync rom
+
+#sync rom
 repo init -u https://github.com/CherishOS/android_manifest.git -b eleven
 
 git clone https://github.com/P-Salik/local_manifest --depth=1 -b main .repo/local_manifests
