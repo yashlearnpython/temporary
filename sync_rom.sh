@@ -1,9 +1,8 @@
 #!/bin/bash
 
 set -exv
-
-# sync rom
-repo init -u https://github.com/ArrowOS/android_manifest.git -b arrow-11.0 --depth=1
+ync rom
+repo init -u https://github.com/CherishOS/android_manifest.git -b eleven
 
 git clone https://github.com/P-Salik/local_manifest --depth=1 -b main .repo/local_manifests
 
@@ -30,3 +29,4 @@ cd frameworks/opt/net/ims
 wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
 patch -p1 < *.patch
 cd ../../../../
+
