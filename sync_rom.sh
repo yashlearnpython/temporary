@@ -3,9 +3,9 @@
 set -exv
 
 # sync rom
-repo init -u https://github.com/PixelExperience/manifest -b eleven
+repo init -u git://github.com/LineageOS/android.git -b lineage-18.1 --depth=1
 
-git clone https://github.com/P-Salik/local_manifest --depth=1 -b pe .repo/local_manifests
+git clone https://github.com/P-Salik/local_manifest --depth=1 -b main .repo/local_manifests
 
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
@@ -30,5 +30,3 @@ cd frameworks/opt/net/ims
 wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
 patch -p1 < *.patch
 cd ../../../../
-
-

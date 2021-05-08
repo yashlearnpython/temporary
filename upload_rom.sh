@@ -9,5 +9,3 @@ up(){
 }
 
 up out/target/product/RMX1941/*.zip
-
-
