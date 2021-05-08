@@ -2,6 +2,10 @@
 
 set -exv
 
-. build/envsetup.sh
-lunch aosip_ysl-userdebug
-time m kronic
+
+# build rom
+source build/envsetup.sh
+lunch havoc_RMX1971-userdebug
+brunch RMX1971
+
+
