@@ -2,7 +2,7 @@
 
 set -exv
 
-#uild rom
-. build/envsetup.sh
-lunch aosip_ysl-userdebug
-time m kronic
+# build rom
+source build/envsetup.sh
+lunch aosp_shiva-userdebhg
+mka bacon -j$(nproc --all)
