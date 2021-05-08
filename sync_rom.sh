@@ -3,7 +3,7 @@
 set -exv
 
 # sync rom
-repo init -u git://github.com/LineageOS/android.git -b lineage-18.1 --depth=1
+repo init -u https://github.com/ArrowOS/android_manifest.git -b arrow-11.0 --depth=1
 
 git clone https://github.com/P-Salik/local_manifest --depth=1 -b main .repo/local_manifests
 
