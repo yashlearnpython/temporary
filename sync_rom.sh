@@ -3,13 +3,13 @@
 set -exv
 
 # sync rom
-repo init --depth=1 -u https://github.com/PixelPlusUI/manifest -b eleven
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+repo init -u https://github.com/PixelExperience/manifest -b eleven
 
-#device
-git clone https://github.com/P-Salik/android_device_realme_RMX1941 device/realme/RMX1941
+git clone https://github.com/P-Salik/local_manifest --depth=1 -b pe .repo/local_manifests
 
-git clone https://github.com/P-Salik/android_vendor_realme_RMX1941 vendor/realme/RMX1941
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+
+# patches
 
 cd external/selinux
 wget https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
@@ -30,3 +30,5 @@ cd frameworks/opt/net/ims
 wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
 patch -p1 < *.patch
 cd ../../../../
+
+
