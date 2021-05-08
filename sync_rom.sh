@@ -3,6 +3,7 @@
 set -exv
 
 # sync rom
-repo init -u  git://github.com/AOSiP/platform_manifest.git -b eleven --depth=1
-git clone https://github.com/flashokiller/android_.repo_local_manifests --depth=1  .repo/local_manifetsts -b aex
-repo sync --force-sync --no-tags --no-clone-bundle
+repo init -u git://github.com/crdroidandroid/android.git -b 10.0 --depth=1
+git clone https://github.com/theRay1s/android_manifest --depth=1 -b lineage-17.1 .repo/local_manifests
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+
